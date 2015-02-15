@@ -1,0 +1,21 @@
+extends layout.jade
+
+block content
+	div.row
+		div.four.columns
+			h5 Name
+		div.four.columns
+			h5 ID
+		div.four.columns
+			h5 Watchers
+
+	each item in repos
+		div.row
+			div.four.columns
+				a(href="/view/repo/" + item.id)
+					= item.name
+			div.four.columns
+				div #{ item.id }
+			div.four.columns
+				div #{ item.watchers }
+

@@ -1,0 +1,21 @@
+extends layout.jade
+
+block content
+	div.row
+		div.four.columns
+			h5 Date Created
+		div.four.columns
+			h5 ID
+		div.four.columns
+			h5 Public
+
+	each item in events
+		div.row
+			div.four.columns
+				a(href="/view/event/" + item.id)
+					= item.created_at
+			div.four.columns
+				div #{ item.id }
+			div.four.columns
+				div #{ item.public }
+

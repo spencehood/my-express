@@ -2,7 +2,7 @@ var express = require('express')
 var app = express()
 
 // dburl to a mongodb server hosted in the cloud (i.e., mongolab)
-var dburl = 'mongodb://yelp:1234@ds039960.mongolab.com:39960/yelp'
+var dburl = 'mongodb://github:1234@ds041871.mongolab.com:41871/github'
 
 // get db
 var db = require('monk')(dburl)
@@ -17,12 +17,10 @@ app.set('view engine', 'jade');
 app.use(express.static(__dirname + '/public'));
 
 
-require('./mongo/doctorList')(app)
-require('./mongo/doctorView')(app)
-require('./mongo/restaurantList')(app)
-require('./mongo/restaurantView')(app)
-require('./mongo/userList')(app)
-require('./mongo/userView')(app)
+require('./mongo/repoList')(app)
+require('./mongo/repoView')(app)
+require('./mongo/eventList')(app)
+require('./mongo/eventView')(app)
 
 var server = app.listen((process.env.PORT || 3000), function() {
 

@@ -1,0 +1,24 @@
+extends layout.jade
+
+block content
+	div.row
+		div.six.columns
+			Name:   repo.full_name
+	div.row
+		div.six.columns
+			ID:   repo.id
+	div.row
+		div.six.columns
+			Watchers:   repo.watchers
+	div.row
+		div.six.columns
+			Total size:   repo.size
+	div.row
+		div.six.columns
+			Forks:   repo.forks
+	div.row
+		div.six.columns
+			Private?:   repo.private
+			
+
+

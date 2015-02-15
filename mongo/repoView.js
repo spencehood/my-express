@@ -1,16 +1,14 @@
+var _ = require('lodash')
+
 module.exports = function(app) {
 
-    app.get('/view/repo/:repo_id', function(req, res) {
-        console.log("hi");
-        // get the business collection
-        var users = app.db.get('repo')
+    app.get('/view/repo/:id', function(req, res) {
 
-         var q = {
-            'repo_id': req.params.repo_id            
-        }
+        // get the repo collection
+        var id = parseInt(req.params.id);
+        var repos = app.db.get('repo');
 
-        var repo = repos.findOne(q, function(err, item) {
-            console.log(item);
+        var repoList = repos.findOne({"repo.id":id}, function(err, item) {
             res.render('viewRepo.jade', {
                 repo: item
             })
